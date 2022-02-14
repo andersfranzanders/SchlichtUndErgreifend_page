@@ -1,0 +1,97 @@
+.startimage img {
+  max-width: 100%;
+  max-height: 100vh;
+  height: auto;
+}
+
+.bg-cover {
+  background: url("pictures/bearbeitet/gruppenfoto_cropped.jpg") no-repeat center;
+  background-size: cover;
+  height:600px;
+}
+.bg-1 {
+  background: url("pictures/bearbeitet/funfoto2_cropped.jpg") no-repeat center;
+  background-size: cover;
+  height:400px;
+}
+.bg-2 {
+  background: url("pictures/bearbeitet/funfoto1_cropped.jpg") no-repeat center;
+  background-size: cover;
+  height:400px;
+}
+.bg-3 {
+  background: url("pictures/bearbeitet/funfoto3_cropped.jpg") no-repeat center;
+  background-size: cover;
+  height:400px;
+}
+
+.profile_pic {
+	width:  300px;
+}
+
+
+
+hr.style1{
+	border-top: 1px solid #FFFFFF;
+}
+
+.background-red{
+	background: #d45d79;
+}
+.text-red{
+	color: #d45d79;
+}
+
+.background-lila{
+	background: #512c96;
+}
+.text-lila{
+	color: #512c96;
+}
+
+.background-orange{
+	background: #ee5a5a;
+}
+.text-orange{
+	color: #ee5a5a;
+}
+
+.background-rosa{
+	background: #ff8ba7;
+}
+
+.text-rosa{
+	color: #ff8ba7;
+}
+
+.background-blue{
+	background: #018383;
+}
+
+.text-blue{
+	color: #018383;
+}
+
+.background-green{
+	background: #42e6a4;
+}
+
+.text-green{
+	color: #42e6a4;
+}
+
+.background-lightgray{
+	background: #f8f8f8;
+}
+
+.text-lightgray{
+	color: #f8f8f8;
+}
+
+.background-petrol{
+	background: #02a8a8;
+}
+
+.text-petrol{
+	color: #02a8a8;
+}

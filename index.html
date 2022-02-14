@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <!-- Required meta tags -->
+    <!--https://colorhunt.co/palette/168803-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script type="text/javascript">
+    var image_source_folder = "pictures/bearbeitet/";
+    var current_profile_name = "";
+
+    function show_person_info(person_name) { 
+
+      texthalter_div = document.getElementById("texthalter");
+
+      var person_info_dict = {
+        "Eva": "Eva ist der Grund, warum wir Publikumsvorgaben wie 'Boden aus Wackelpudding' mittlerweile nur noch elegant abwiegeln. Und es wird uns verziehen, denn niemand will mehr zugunsten von schnellen Lachern die Gelegenheit verpassen, Zeuge von Evas detailliertem, emotionalen Schauspiel und ihrer Rollen zu werden, die sich meist irgendwo zwischen herzlich und hysterisch einpendeln. Mit ihr zu spielen heißt, immer einen Notfallplan in petto zu haben, denn Evas Gespür für spannende Geschichten und Figurenentwicklung gibt uns Mitspielenden die Sicherheit, dass es schon gut gehen wird. Einige Male hat sie so als 'heimliche Moderatorin' schon für neue Entwicklungen und spannende Wendungen gesorgt. Man muss ihre Zeichen nur zu lesen wissen!. Einige Male hat sie so als 'heimliche Moderatorin' schon für neue Entwicklungen und spannende Wendungen gesorgt. (Andreas über Eva)",
+        "Nicolai" : "Nicolai ist unser bayrischer Exportschlager, der bei jeder Probe und jedem Auftritt mindestens mit Energielevel '8' am Start ist und mit seinem 'nicolaitypischen' Humor stets für gute Stimmung in unserer Gruppe sorgt. Auf der Bühne ist es bei seiner unglaublichen Mimik-Variation schon unterhaltsam, wenn sich Nicolai einfach auf die Bühne stellen und eine Zeitung lesen würde. Seine Charaktere sind häufig kauzig und schräg, und dennoch immer zu 100% authentisch. Sein absolutes Alleinstellungsmerkmal ist jedoch seine Pantomime: Wenn Nicolai die Bühne betritt, macht er jeden Ort und jedes Objekt durch seine Handgriffe sichtbar, ohne ein Wort zu sagen. (Nicola über Nicolai)",
+        "Andreas": "Andreas ist unser Mann für die großen Gefühle. Egal ob als Late Night Talker, dem (nicht nur) die Frauen vertrauen, oder als versierter Analytiker, der kein Risiko scheut, alles zu geben. Ganz gleich ob er die großen Arien anstimmt oder ganz subtil seinen bayrischen Charme spielen lässt. Bei ihm gibt es immer viel Herz und eine gute Prise Alltagswahnsinn. (Thomas über Andreas)",
+        "Franz": "Franz ist unser Mann fürs Sentimentale. Egal welche Rolle er angeht, die Charaktere sind liebenswert und oftmals Publikumslieblinge. Dabei sind sie oft vielschichtig und absolut menschlich, sie sind also verletzlich und nachvollziehbar in ihren Handlungen. Er verliert nie den Blick für die Geschichte und darauf, worauf es den Figuren in ihrer Welt ankommt. Franz scheut sich auch gerade nicht, seine feminine Seite dem Publikum zuzuwenden. So spielt er oft auch Frauen, Transgender und Homosexuelle ohne sich irgendeinem Klischee zu bedienen. Da er unser großer Impro-Analytiker ist, weiß er sich geschickt in der Geschichte zu bewegen, ohne sich jemals in ihr zu verlieren. Er weiß wie eine gute Erzählung funktioniert und wie man Charaktere zu ihrem Höhepunkt bringt. (Eva über Franz)",
+        "Thomas": "Thomas ist einer unserer erfahrensten Spieler und ist spezialisiert auf feine, detaillierte Charaktere, die selbst im komödiantischen mit subtilen Besonderheiten überraschen. Dies gepaart mit gesellschaftlicher Kritik und politischem Beigeschmack, kann er seine Kabarettvergangenheit nicht mehr verbergen. Auf der Bühne imponiert Thomas mit Vielfalt und Ambivalenz, in ihm ist wahlweise ein 80-jähriger oder 10-jähriger gefangen im Körper eines Mittdreißigers, ebenso jegliche Randgebiete der menschlichen Psyche. Er verleiht jedem Charakter Seriosität mit Augenzwinkern. Ein Lacher gehört quasi zur Erwartungshaltung. Und wer die Pointe verpasst, ist selbst Schuld. (Norman über Thomas)",
+        "Norman": "Norman gibt seinen Charakteren die Härte, vor denen andere Mitspieler sich scheuen. Ob uneinsichtige Massenmörder, oder den bewegungsgedrängten Macher. Richtig entfalten kann er sein markantes Gesicht in aggressiven, oder stoisch anhaltenden Schweigeszenen. Manchmal beneide ich ihn wegen seines Körpers. Auch versucht er den Geschichten einen Verlauf aufzuerlegen, welchen weder Mitspieler, noch Publikum erwarten - und das mag ich. Norman, bei dir fängt alles an, bei dir hört es auf, wie jeder Anfangsbuchstabe von jedem Satz. (Nicolai über Norman)",
+        "Nicola": "Nicola ist unser Küken: Sie ist als letztes dazugestoßen und hat daher die Energie, die manchmal den alteingesessenen Herren fehlt. Sie ist aufgeweckt, wuselig und nimmt gerne die gesamte Bühne in Anspruch. Dem Publikum bleibt sie auch häufig als 'die mit der Stimme' in Erinnerung, die sie bewusst zur Rollendefinition einsetzt. In den Geschichten spielt sie gerne wuchtige Charaktere - wenn sie sich traut, dann aber richtig. (Franz über Nicola)"
+      };
+      var person_images = {
+        "Eva": "s-e-web--6.jpg",
+        "Andreas":"s-e-web--4.jpg",
+        "Nicolai":"s-e-web-2.jpg",
+        "Nicola":"s-e-web--3.jpg",
+        "Norman":"s-e-web--5.jpg",
+        "Thomas":"s-e-web--2.jpg",
+        "Franz":"s-e-web-.jpg"
+      };
+
+      if (person_name != current_profile_name){
+          texthalter_div.innerHTML = person_info_dict[person_name];
+      document.getElementById('personen_bild').src = image_source_folder.concat(person_images[person_name]);
+        current_profile_name = person_name;
+      } else {
+        texthalter_div.innerHTML = "";
+        document.getElementById('personen_bild').src = ""
+        current_profile_name = "";
+      }
+      
+    };
+
+    </script>
+
+
+
+    <title>SCHLICHT &amp; ergreifend </title>
+  </head>
+  <body>
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v5.0"></script>
+
+
+    <div class="container-fluid">
+      <div class="row text-center p-5 bg-dark text-light">
+        <div class="col">
+          <div class="row"> 
+            <div class="col">
+                <h1 class="display-4"><span class="">SCHLICHT</span> &amp; <span class="">ergreifend</span></h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col"> 
+                <h3>Improtheater aus Leipzig</h3><h3> einfach gute Geschichten</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row ">
+        <div class="col bg-cover text-white">
+        </div>
+      </div>
+
+      <div class="row pt-5 pb-5 pl-2 pr-2 shadow-lg bg-dark">
+        <div class="col">
+          <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-12 background-blue text-white rounded shadow p-4">
+              <div class="row">
+                <div class="col text-center">
+                    <h3 class="display-5">Wir sind SCHLICHT &amp; ergreifend</h3>
+                    <hr class="style1">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col text-justify">
+                SCHLICHT &amp; ergreifend wurde 2015 aus dem Wunsch heraus gegründet, Nachwuchs für die Leipziger Improvisationstheater-Langform-Szene heranzuzüchten. Das heißt nicht, dass wir nicht auch ein gutes "Freeze" oder "Change" zu schätzen wüssten - das Ziel bleibt jedoch, Leipzigs beste Langformgruppe zu werden. Damit das auch gelingt, unterstützt uns Improprofi <a href="http://www.august-geyler.de/" class="text-white underline" target="_blank"><u>August Geyler</u></a> als Trainer mit seinem reichen Erfahrungsschatz. Unseren Unterschlupf haben wir im <a href="https://www.haus-steinstrasse.de/" class="text-white" target="_blank"><u>Haus Steinstraße</u></a> gefunden. Hier proben wir nicht nur, sondern treten auch regelmäßig auf. Unterm Strich: Wir sind SCHLICHT &amp; ergreifend. Und wir nehmen Improtheater eindeutig ernster, als es für eine Amateurgruppe gesund ist. Und übrigens: Man findet uns natürlich auch auf <a href="https://www.facebook.com/SCHLICHT-ergreifend-1376503412649272/" class="text-white" target="_blank"><u>Facebook</u></a> und <a href="https://www.instagram.com/schlichtuergreifend/" class="text-white" target="_blank"><u>Instagram</u></a>.
+                </div>
+              </div>
+            </div>
+          </div>  
+        </div>
+      </div>
+      <div class="row ">
+        <div class="col-4 bg-1 text-white">
+        </div>
+        <div class="col-4 bg-2 text-white">
+        </div>
+        <div class="col-4 bg-3 text-white">
+        </div>
+      </div>
+      <div class="row pt-5 pb-5 pl-2 pr-2 background-blue ">
+        <div class="col">
+          <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-12 bg-dark shadow rounded p-4">
+              <div class="row">
+                <div class="col text-center  text-white">
+                    <h3>Team</h3>
+                    <hr class="style1">
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col text-center">
+                  <div class="overflow-auto">
+                    <div class="btn-group" role="group" aria-label="Basic example">     
+                        <button type="button" class="btn  btn-outline-light" onClick="show_person_info(this.value)" value="Andreas">Andreas</button>
+
+                        <button type="button" class="btn  btn-outline-light" onClick="show_person_info(this.value)" value="Eva">Eva</button>
+              
+                        <button type="button" class="btn  btn-outline-light" onClick="show_person_info(this.value)" value="Franz">Franz</button>
+        
+                        <button type="button" class="btn btn-outline-light" onClick="show_person_info(this.value)" value="Nicola">Nicola</button>
+            
+                        <button type="button" class="btn  btn-outline-light" onClick="show_person_info(this.value)" value="Nicolai">Nicolai</button>
+           
+                        <button type="button" class="btn  btn-outline-light" onClick="show_person_info(this.value)" value="Norman">Norman</button>
+           
+                        <button type="button" class="btn btn-outline-light" onClick="show_person_info(this.value)" value="Thomas">Thomas</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="row p-3">
+                    <div class="col-sm-12 col-md-6 text-white pl-1 pr-1 pt-1 text-justify">
+                      <div id="texthalter">   
+                      </div>
+                    </div>
+                    <div class="col-sd-12 col-md-6 text-center pl-1 pr-1 pt-1">
+                      <img id = "personen_bild" class="figure-img img-fluid profile_pic rounded shadow" src="">                  
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>  
+        </div>
+      </div>
+      <div class="row pt-5 pb-5 pl-2 pr-2 shadow-lg bg-dark">
+        <div class="col">
+          <div class="row justify-content-center">
+            <div class="col-lg-3 col-md-5 rounded shadow-lg text-white background-blue p-4 m-1">
+              <div class="row">
+                <div class="col text-center">
+                    <h3 class="display-5">Mitmachen</h3>
+                    <hr class="style1">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col text-justify">
+                 Du hast Lust, mit uns zu spielen? Wir freuen uns auf neue Mitspielerinnen und Mitspieler! Bei uns bist du genau richtig, wenn du dich improtechnisch weiterentwickeln, in die Tiefe gehen und Langform spielen willst. Am besten hast du bereits einige Jahre einschlägige Improerfahrung gesammelt und standest dabei auch schon selbst auf einer Theaterbühne. Schreib uns einfach eine Nachricht mit ein paar Infos über dich und dann kommen wir zusammen!
+                </div>
+              </div>
+              <div class="row pt-1">
+                <div class="col">
+                   <a class="btn btn-block btn-outline-light" href="mailto:kontakt@schlichtundergreifend.info">Kontakt</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-5 rounded background-petrol text-white shadow-lg p-4 m-1 ">
+              <div class="row ">
+                <div class="col text-center">
+                    <h3 class="display-5">Buchen</h3>
+                    
+                    <hr class="style1">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col text-justify">
+                  Ihr könnt uns auch Buchen! Das schöne am Improthetaer ist, dass man kaum mehr braucht als eine Bühne und Licht. Schick uns einfach eine Nachricht!
+                </div>
+              </div>
+               <div class="row pt-1">
+                <div class="col">
+                   <a class="btn btn-block btn-outline-light" href="mailto:kontakt@schlichtundergreifend.info">Kontakt</a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-5 rounded background-green shadow-lg p-4 m-1">
+              <div class="row">
+                <div class="col text-center">
+                    <h3 class="display-5">Auftritte</h3>
+                    
+                    <hr class="style1">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col text-justify">
+                Wir treten Regelmäßig im <a href="https://www.haus-steinstrasse.de/" class="text-dark"><u>Haus Steinstraße</u></a> auf. Hier findest du unsere nächsten Auftritte: 
+                </div>
+              </div>
+              <div class="row">
+                <div class="col pt-1">
+                  <div class="overflow-auto">
+                    <div class="fb-page" data-href="https://www.facebook.com/SCHLICHT-ergreifend-1376503412649272/" data-tabs="events" data-width="" data-height="" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>  
+        </div>    
+      </div>
+      <div class="row justify-content-center bg-dark pt-5 pb-5">
+        <div class="col-md-6 col-sm-10 pt-5 text-center">
+          <button class="btn btn-block btn-outline-light" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Impressum &#x25BC;
+          </button>
+        
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body bg-dark text-white">
+                Franz Anders, Hardenbergstr. 34, 04275 Leipzig, kontakt@schlichtundergreifend.info
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </body>
+</html>
